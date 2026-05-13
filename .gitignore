@@ -1,4 +1,6 @@
 target/
+reports/
+screenshots/
 .idea/
 .vscode/
 *.iml
