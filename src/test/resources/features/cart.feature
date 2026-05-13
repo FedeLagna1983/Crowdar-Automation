@@ -1,5 +1,7 @@
 Feature: Add products to cart functionality
 
+
+  @cart
   Scenario: Add product from inventory item page and validate it in cart
     Given the user opens the SauceDemo login page
     When the user logs in with username "standard_user" and password "secret_sauce"

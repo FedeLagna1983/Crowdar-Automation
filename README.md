@@ -1,61 +1,106 @@
-# Crowdar Automation
+# Crowdar Automation Challenge
 
-Automation challenge para Crowdar.
+## Instalacion
 
-Proyecto base de automatizacion con Java, Maven, Selenium WebDriver, TestNG y REST Assured.
-
-## Estructura
-
-```text
-CROWDAR AUTOMATION
-|-- pom.xml
-|-- testng.xml
-|-- README.md
-|-- reports
-|-- screenshots
-`-- src
-    `-- test
-        |-- java
-        |   `-- crowdar
-        |       |-- base
-        |       |   `-- BaseTest.java
-        |       |-- factory
-        |       |   `-- DriverFactory.java
-        |       |-- pages
-        |       |   |-- BasePage.java
-        |       |   |-- LoginPage.java
-        |       |   |-- ProductsPage.java
-        |       |   `-- CartPage.java
-        |       |-- tests
-        |       |   |-- LoginTests.java
-        |       |   |-- CartTests.java
-        |       |   `-- MercadoLibreApiTests.java
-        |       `-- utils
-        |           `-- ScreenshotUtils.java
-        `-- resources
-            `-- config.properties
-```
-
-## Requisitos
-
-- Java 17 o superior.
-- Maven 3.9 o superior.
-- Chrome, Firefox o Edge instalado para las pruebas UI.
-
-## Configuracion
-
-Editar `src/test/resources/config.properties` para cambiar navegador, modo headless, URL base y credenciales.
-
-## Ejecucion
+- Clonar el repositorio:
 
 ```bash
-mvn test
+git clone https://github.com/FedeLagna1983/Crowdar-Automation.git
+cd Crowdar-Automation
 ```
 
-Para compilar sin ejecutar pruebas:
+- Verificar que Java y Maven esten instalados:
 
 ```bash
-mvn -DskipTests test
+java -version
+mvn -version
 ```
 
-Los reportes de Surefire se generan en `reports/surefire` y las capturas de pantalla de fallos UI en `screenshots`.
+- Instalar dependencias del proyecto:
+
+```bash
+mvn clean install
+```
+
+## Ejecucion de Pruebas
+
+- Ejecutar todas las pruebas con la configuracion por defecto:
+
+```bash
+mvn clean test
+```
+
+- Ejecutar todas las pruebas en Chrome:
+
+```bash
+mvn clean test -Dbrowser=chrome
+```
+
+- Ejecutar todas las pruebas en Firefox:
+
+```bash
+mvn clean test -Dbrowser=firefox
+```
+
+## Ejecucion por Tags
+
+Tags disponibles:
+
+- `@login`
+- `@cart`
+- `@api`
+- `@intentionalFail`
+
+El tag `@intentionalFail` ejecuta un escenario que falla de forma intencional. Sirve para demostrar la captura de error, screenshots y reportes cuando una prueba falla.
+
+### Chrome
+
+- Ejecutar pruebas de login:
+
+```bash
+mvn clean test -Dbrowser=chrome "-Dcucumber.filter.tags=@login"
+```
+
+- Ejecutar pruebas de carrito:
+
+```bash
+mvn clean test -Dbrowser=chrome "-Dcucumber.filter.tags=@cart"
+```
+
+- Ejecutar prueba con fallo intencional:
+
+```bash
+mvn clean test -Dbrowser=chrome "-Dcucumber.filter.tags=@intentionalFail"
+```
+
+- Ejecutar pruebas de API:
+
+```bash
+mvn clean test -Dbrowser=chrome "-Dcucumber.filter.tags=@api"
+```
+
+### Firefox
+
+- Ejecutar pruebas de login:
+
+```bash
+mvn clean test -Dbrowser=firefox "-Dcucumber.filter.tags=@login"
+```
+
+- Ejecutar pruebas de carrito:
+
+```bash
+mvn clean test -Dbrowser=firefox "-Dcucumber.filter.tags=@cart"
+```
+
+- Ejecutar prueba con fallo intencional:
+
+```bash
+mvn clean test -Dbrowser=firefox "-Dcucumber.filter.tags=@intentionalFail"
+```
+
+- Ejecutar pruebas de API:
+
+```bash
+mvn clean test -Dbrowser=firefox "-Dcucumber.filter.tags=@api"
+```
