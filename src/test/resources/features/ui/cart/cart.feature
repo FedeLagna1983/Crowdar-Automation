@@ -1,7 +1,7 @@
 Feature: Add products to cart functionality
 
 
-  @cart
+  @cart @smoke
   Scenario: Add product from product detail page and validate it in cart
     Given the user opens the SauceDemo login page
     When the user logs in with username "standard_user" and password "secret_sauce"
@@ -10,7 +10,7 @@ Feature: Add products to cart functionality
     And the user opens the cart page
     Then the selected product should be displayed correctly in the cart
 
-  @cart
+  @cart @regression
   Scenario: Remove product from cart and validate cart is empty
     Given the user opens the SauceDemo login page
     When the user logs in with username "standard_user" and password "secret_sauce"
