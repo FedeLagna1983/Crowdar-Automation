@@ -1,5 +1,7 @@
 # Crowdar Automation
 
+Automation challenge para Crowdar.
+
 Proyecto base de automatizacion con Java, Maven, Selenium WebDriver, TestNG y REST Assured.
 
 ## Estructura
