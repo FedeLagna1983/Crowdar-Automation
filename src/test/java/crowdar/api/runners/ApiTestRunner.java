@@ -11,6 +11,6 @@ public class ApiTestRunner {
                 "classpath:features/api/mercadolibre/getDepartments.feature"
         )
         .outputCucumberJson(true)
-        .reportDir("target/reports/api");
+        .reportDir("reports/api");
     }
 }
